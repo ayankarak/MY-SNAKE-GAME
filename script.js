@@ -145,6 +145,27 @@ document.addEventListener("DOMContentLoaded", function() {
             gameLoop(); //start the game loop
         }
     }
+
+    function showGameOverScreen() {
+
+        const overlay = document.createElement("div");
+        overlay.id = "game-over-overlay";
+
+        overlay.innerHTML = `
+            <h2>Game Over</h2>
+            <p>Score: ${score}</p>
+            <button id="play-again-btn">Play Again</button>
+        `;
+
+        gameArena.appendChild(overlay);
+
+        document.getElementById("play-again-btn").addEventListener("click", function () {
+            overlay.remove();
+            resetGame();
+            runGame();
+        });
+    }
+    
     function resetGame() {
         score=0;
         gameSpeed=200;

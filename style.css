@@ -4,9 +4,23 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin: 0;
+
+    /* Background Image */
+    background-image: url("snake1.jpg");
+    background-size: 200px 200px;   /* adjust if needed */
+    background-repeat: repeat;
+    background-position: center;
+}
+/* body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     background-color: antiquewhite;
     text-align: center;
-}
+} */
 
 /* #game-arena {
     width: 600px;

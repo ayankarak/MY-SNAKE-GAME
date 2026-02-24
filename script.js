@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let dy=0; //0
     let intervalId;
     let gamespeed=200;
+    let highScore = localStorage.getItem("highScore") || 0;
 
     function moveFood() {
         let newX,newY;
@@ -102,13 +103,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showGameOverScreen() {
-    const gameOverDiv = document.createElement("div");
-    gameOverDiv.id = "game-over";
+      const gameOverDiv = document.createElement("div");
+      gameOverDiv.id = "game-over";
 
-    gameOverDiv.innerHTML = `
-        <h2>Game Over!</h2>
-        <p>Your Score: ${score}</p>
-        <button id="restart-btn">Restart</button>
+      gameOverDiv.innerHTML = `
+           <h2>Game Over!</h2>
+           <p>Your Score: ${score}</p>
+           <button id="restart-btn">Restart</button>
     `;
 
     document.body.appendChild(gameOverDiv);
@@ -127,6 +128,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 gameStarted=false;
                 // alert('Game Over' + '\n' + 'Your Score: ' + score);
                 // resetGame();
+                if (score > highScore) {
+                    highScore = score;
+                    localStorage.setItem("highScore", highScore);
+                }
                 showGameOverScreen();
                 return ;
             }
@@ -184,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     function drawScoreBoard() {
         const scoreBoard=document.getElementById("score-board");
-        scoreBoard.textContent=`Score: ${score}`;
+        scoreBoard.textContent = `Score: ${score} | High Score: ${highScore}`;
     }
 
     function initiateGame() {

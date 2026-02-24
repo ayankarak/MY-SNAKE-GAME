@@ -136,6 +136,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }, gamespeed);
     }
 
+    function drawScoreBoard() {
+        const scoreBoard = document.getElementById("score-board");
+        scoreBoard.textContent = `Score: ${score} | High Score: ${highScore}`;
+    }
+
     function runGame() {
         if(!gameStarted){
             gameStarted=true;
@@ -165,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function() {
             runGame();
         });
     }
-    
+
     function resetGame() {
         score=0;
         gameSpeed=200;

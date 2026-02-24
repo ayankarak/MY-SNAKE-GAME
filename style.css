@@ -7,9 +7,9 @@ body {
     margin: 0;
 
     /* Background Image */
-    background-image: url("snake1.jpg");
-    background-size: 200px 200px;   /* adjust if needed */
-    background-repeat: repeat;
+    background-image: url("assets/snake1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
 }
 /* body {
